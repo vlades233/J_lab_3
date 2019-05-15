@@ -26,7 +26,23 @@ public class Java {
            array[i] = random.nextFloat();
        }
        array[4]=array[2]; // искуственно создал дубликат, что бы наглядно было
-        Arrays.sort(array);
+       // Arrays.sort(array); 
+        for (int i = 0; i < array.length; i++) { //реализовал что то вроде сортировки выбором, вроде так      
+            float min = array[i];
+         int min_i = i; 
+            for (int j = i+1; j < array.length; j++) {
+            if (array[j] < min) {
+                min = array[j];
+                min_i = j;
+            }
+        }
+        if (i != min_i) {
+            float tmp = array[i];
+            array[i] = array[min_i];
+            array[min_i] = tmp;
+        }
+     }
+        
          System.out.println("Сортированный  массив: " + Arrays.toString(array)); //Сортирую, потому что подумал что я не хочу проходить по всему массиву, лучше пусть он будет проверять прошлый елемент, будет практичнее
          array_new[0]=array[0];
         array_new[0]=array[0];
